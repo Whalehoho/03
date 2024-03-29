@@ -33,7 +33,7 @@ Install the required dependencies:
 `npm run dev -- --host`
 
 ## Built With
-- HTHTML - The markup language used
+- HTML - The markup language used
 - CSS - The style sheet language
 - JavaScript - The programming language used
 - Three.js - 3D library used
