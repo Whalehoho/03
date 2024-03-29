@@ -12,7 +12,7 @@
 - [x] HomePage with a 3D model
 - [ ] Overall front-end design
 - [ ] Database management
-- [ ] Adding features from my project: ** *Project based on mediapipe* **
+- [ ] Adding features from my project: ***Project based on mediapipe***
 - [ ] Live room for multiple users to join
 
 ## Getting Started
