@@ -84,7 +84,7 @@ let myModel = null; // Scoped outside
 
 // Instantiate the loader
 const loader = new GLTFLoader();
-loader.load('./discobolus_the_discus_thrower/scene.gltf', function (gltf) {
+loader.load('discobolus_the_discus_thrower/scene.gltf', function (gltf) {
     // const skinMaterial = new THREE.MeshStandardMaterial({ color: 0xffd1a9 });
     const skinMaterial = new THREE.MeshStandardMaterial({ color: "white" });
     skinMaterial.roughness = 1;
