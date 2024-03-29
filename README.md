@@ -39,5 +39,4 @@ Install the required dependencies:
 - Three.js - 3D library used
 
 ## Encountered Problem
-- scene.gltf & scene.bin 404 not found. 
-- - Solution: put them in public folder under root folder. Use new URL(path) to load model. Set path to "/scene.gltf".
+* scene.gltf & scene.bin 404 not found. (Solution: put them in public folder under root folder. Use new URL(path) to load model. Set path to "/scene.gltf")
