@@ -8,6 +8,13 @@
 - Interactive 3D elements with Three.js
 - Modern, sleek UI/UX
 
+## To Build
+- [x] HomePage with a 3D model
+- [ ] Overall front-end design
+- [ ] Database management
+- [ ] Adding features from my project: "Project based on mediapipe"
+- [ ] Live room for multiple users to join
+
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
