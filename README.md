@@ -30,7 +30,7 @@ What things you need to install:
 ### Clone
 First, clone the repository to your local machine:
 
-`git clone https://github.com/yourusername/your-project-name.git`
+`git clone https://github.com/Whalehoho/03.git`
 
 Navigate to the project directory:
 
@@ -39,6 +39,8 @@ Navigate to the project directory:
 Install the required dependencies:
 
 `npm install`
+
+Launch:
 
 `npm run dev -- --host`
 
