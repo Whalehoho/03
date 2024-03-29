@@ -15,6 +15,9 @@
 - [ ] Adding features from previous project: ***Project based on mediapipe***
 - [ ] Live room for multiple users to join
 
+## Preview
+![Preview](https://github.com/Whalehoho/03/blob/deploy/assets/Media_240330_044829.gif)
+
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
