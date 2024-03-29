@@ -84,7 +84,7 @@ let myModel = null; // Scoped outside
 
 // Instantiate the loader
 const loader = new GLTFLoader();
-const modelUrl = new URL('./media/scene.gltf', import.meta.url).href;
+const modelUrl = new URL('/scene.gltf', import.meta.url).href;
 loader.load(modelUrl, function (gltf) {
     // const skinMaterial = new THREE.MeshStandardMaterial({ color: 0xffd1a9 });
     const skinMaterial = new THREE.MeshStandardMaterial({ color: "white" });
