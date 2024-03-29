@@ -1,3 +1,4 @@
+
 {
   "name": "03",
   "version": "1.0.0",
@@ -5,8 +6,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "deploy": "vercel --prod"
+    "build": "npm run copy-assets && vite build",
+    "deploy": "vercel --prod",
+    "copy-assets": "ncp media dist/assets"
+    
   },
   "keywords": [],
   "author": "",
@@ -17,5 +20,8 @@
     "three": "^0.162.0",
     "vercel": "^33.6.2",
     "vite": "^5.2.6"
+  },
+  "devDependencies": {
+    "ncp": "^2.0.0"
   }
 }
