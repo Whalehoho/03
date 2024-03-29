@@ -1,0 +1,144 @@
+
+// import * as THREE from 'three'
+
+// // Canvas
+// const canvas = document.querySelector('canvas.webgl')
+
+// // Scene
+// const scene = new THREE.Scene()
+
+// // Object
+// const geometry = new THREE.BoxGeometry(1,1,1)
+// const material = new THREE.MeshBasicMaterial({color: 'red', wireframe: false})
+// const mesh = new THREE.Mesh(geometry, material)
+
+// scene.add(mesh)
+
+// // Sizes
+// const sizes = {
+//     width: innerWidth,
+//     height: innerHeight
+// }
+
+// // Camera
+// const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height,0.1,1000)
+// camera.position.x = 1;
+// camera.position.z = 3;
+
+// scene.add(camera)
+
+// // Renderer
+// const renderer = new THREE.WebGL1Renderer({
+//     canvas: canvas
+
+// })
+
+// renderer.setSize(sizes.width, sizes.height)
+// renderer.render(scene, camera)
+
+// import * as THREE from 'three';
+// import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+// // Create the scene
+// const scene = new THREE.Scene();
+// scene.background = new THREE.Color(0x8FBCD4); // Optional: Change to whatever color you want or remove this line
+
+// // Set up the camera
+// const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+// // Set the camera position for a top-down view
+// camera.position.set(0, 0, 1); // X and Z are 0 for top-down, Y is however high you want to be above the ground
+// // Point the camera straight down
+// // camera.lookAt(new THREE.Vector3(0, 0, 0)); // Look at the center of the scene (or any other point you wish to focus on)
+
+
+// // Create the renderer and add it to the DOM
+// const renderer = new THREE.WebGLRenderer();
+// renderer.setSize(window.innerWidth, window.innerHeight);
+// document.body.appendChild(renderer.domElement);
+
+// // Add lighting to the scene
+// const ambientLight = new THREE.AmbientLight(0xcccccc, 0.4);
+// scene.add(ambientLight);
+
+// const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+// directionalLight.position.set(1, 1, 0); // Adjust the light's position as needed
+// scene.add(directionalLight);
+
+// // Instantiate the loader
+// const loader = new GLTFLoader();
+// loader.load('./discobolus_the_discus_thrower/scene.gltf', function (gltf) {
+//     scene.add(gltf.scene);
+// }, undefined, function (error) {
+//     console.error(error);
+// });
+
+// // Animation loop
+// function animate() {
+//     requestAnimationFrame(animate);
+
+//     // Add any animations or controls here
+
+//     renderer.render(scene, camera);
+// }
+
+// animate(); // Start the animation loop
+
+// // Responsive design: Update the camera and renderer size when the window is resized
+// window.addEventListener('resize', () => {
+//     const width = window.innerWidth;
+//     const height = window.innerHeight;
+
+//     // Update camera aspect ratio and projection matrix
+//     camera.aspect = width / height;
+//     camera.updateProjectionMatrix();
+
+//     // Update renderer size
+//     renderer.setSize(width, height);
+// });
+
+/**
+ * Textures
+ */
+// const loadingManager = new THREE.LoadingManager()
+// loadingManager.onStart = () =>
+// {
+//     console.log('loadingManager: loading started')
+// }
+// loadingManager.onLoad = () =>
+// {
+//     console.log('loadingManager: loading finished')
+// }
+// loadingManager.onProgress = () =>
+// {
+//     console.log('loadingManager: loading progressing')
+// }
+// loadingManager.onError = () =>
+// {
+//     console.log('loadingManager: loading error')
+// }
+
+// const textureLoader = new THREE.TextureLoader(loadingManager)
+
+// // const colorTexture = textureLoader.load('/textures/checkerboard-1024x1024.png')
+// // const colorTexture = textureLoader.load('/textures/checkerboard-2x2.png')
+// const colorTexture = textureLoader.load(
+//     './textures/Wood_Herringbone_Tiles_004_SD/Substance_Graph_BaseColor.jpg',
+//     () =>
+//     {
+//         console.log('textureLoader: loading finished')
+//     },
+//     () =>
+//     {
+//         console.log('textureLoader: loading progressing')
+//     },
+//     () =>
+//     {
+//         console.log('textureLoader: loading error')
+//     }
+// )
+// colorTexture.wrapS = THREE.MirroredRepeatWrapping
+// colorTexture.wrapT = THREE.MirroredRepeatWrapping
+
+// colorTexture.generateMipmaps = false
+// colorTexture.minFilter = THREE.NearestFilter
+// colorTexture.magFilter = THREE.NearestFilter
