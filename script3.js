@@ -46,7 +46,8 @@ async function joinRoom() {
 
     try {
         // Fetch a new token from your serverless function
-        const response = await fetch(`/api/generate-token?channelName=${channel}`);
+        const response = await fetch(`http://localhost:${PORT}/api/generate-token?channelName=${channel}`);
+        // const response = await fetch(`/api/generate-token?channelName=${channel}`);
         const data = await response.json();
         console.log("get data.token");
         const token = data.token; // Token is obtained from your serverless function
