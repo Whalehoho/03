@@ -9,6 +9,7 @@ menu.onclick = () => {
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
+    // for theme switch
     const savedTheme = localStorage.getItem('theme') || 'light'; // Default to light theme
     document.body.setAttribute('data-theme', savedTheme);
 
@@ -18,16 +19,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
     } else {
         themeToggleButton.innerHTML = "Dark Mode";
     }
-});
 
-// Add event listener to a parent element that exists when the page loads
-document.getElementById('grid-streams').addEventListener('click', function(event) {
-    const target = event.target;
-    
-    // Check if the clicked element has either 'stream' or 'agora_video_player' class
-    if (target.classList.contains('stream') || target.classList.contains('agora_video_player')) {
-        // Toggle enlargement of the clicked cell
-        toggleCellEnlargement(target);
+    // for video enlarge
+    var gridStreams = document.getElementById('grid-streams');
+    if (gridStreams) {
+        gridStreams.addEventListener('click', function(event) {
+            const target = event.target;
+            
+            // Check if the clicked element has either 'stream' or 'agora_video_player' class
+            if (target.classList.contains('stream') || target.classList.contains('agora_video_player')) {
+                // Toggle enlargement of the clicked cell
+                toggleCellEnlargement(target);
+            }
+        });
+    } else {
+        console.error('Element with ID "grid-streams" was not found.');
     }
 });
 

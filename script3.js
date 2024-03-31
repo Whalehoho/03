@@ -49,8 +49,8 @@ async function joinRoom() {
 
     try {
         // Fetch a new token from your serverless function
-        const response = await fetch(`http://localhost:${PORT}/api/generate-token?channelName=${channel}`);
-        // const response = await fetch(`/api/generate-token?channelName=${channel}`);
+        // const response = await fetch(`http://localhost:${PORT}/api/generate-token?channelName=${channel}`);
+        const response = await fetch(`/api/generate-token?channelName=${channel}`);
         const data = await response.json();
         console.log("get data.token");
         const token = data.token; // Token is obtained from your serverless function
@@ -189,7 +189,7 @@ client.on('user-published', async (user, mediaType) => {
         remoteStreamDiv.className = 'stream remote-stream';
         // Include user.uid in the innerHTML
         remoteStreamDiv.innerHTML = `<div class="user-id-display">User ID: ${user.uid}</div>` +
-                                `<div class="video-off-placeholder">Video Off!</div>`;
+                                `<div class="video-off-placeholder">Video Off</div>`;
         document.getElementById('grid-streams').appendChild(remoteStreamDiv);
     }
     
