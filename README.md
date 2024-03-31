@@ -60,3 +60,31 @@ Launch:
 
 ## Issues
 * scene.gltf & scene.bin 404 not found. (Solution: put them in public folder under root folder. Use new URL(path) to load model. Set path to "/scene.gltf")
+* During local development, use Express server for backend logic. When deploying to Vercel, typically don't need to set up an Express server explicitly for your backend logic, especially if you're leveraging Vercel's serverless functions. Vercel abstracts away the traditional server setup and automatically handles requests to your API endpoints defined within the /api directory of your project.
+**Key Points:**
+- Serverless Functions: In the Vercel environment, backend logic can be implemented through serverless functions. Each JavaScript or TypeScript file inside the /api directory automatically becomes an API endpoint. Vercel invokes these functions in response to incoming HTTP requests, and don't have to manage a server or listen on a port manually.
+- Local Development: For local development, use Express to mimic serverless API locally.
+- Transitioning to Vercel:
+ 1. **Organize API Endpoints:** 
+ Place server-side code in files within the /api directory at the root of your Vercel project. Each file in this directory becomes an endpoint named after the file. For example, code in /api/generate-token.js is accessible at https://your-vercel-project.vercel.app/api/generate-token.
+ 2. **Example Serverless Function (/api/generate-token.js):**
+  ```
+  // This file is placed in the /api directory of your project.
+const { RtcTokenBuilder, RtcRole } = require('agora-access-token');
+
+module.exports = (req, res) => {
+    const { channelName } = req.query;
+    const appId = process.env.AGORA_APP_ID;
+    const appCertificate = process.env.AGORA_APP_CERTIFICATE;
+    const role = RtcRole.PUBLISHER;
+    const expirationTimeInSeconds = 3600 * 24; // Token expires in 24 hours
+    const currentTimestamp = Math.floor(Date.now() / 1000);
+    const privilegeExpiredTs = currentTimestamp + expirationTimeInSeconds;
+    const uid = 0; // Pass 0 if you want Agora to assign a UID for you
+
+    const token = RtcTokenBuilder.buildTokenWithUid(appId, appCertificate, channelName, uid, role, privilegeExpiredTs);
+
+    res.json({ token });
+};
+  ```
+
