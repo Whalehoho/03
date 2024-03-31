@@ -61,6 +61,9 @@ Launch:
 - CSS - The style sheet language
 - JavaScript - The programming language used
 - Three.js - 3D library used
+- Agora - Live video call SDK
+- Express.js - Local backend server for dev purposes
+- Vercel - Deployment
 
 ## Issues
 * scene.gltf & scene.bin 404 not found. (Solution: put them in public folder under root folder. Use new URL(path) to load model. Set path to "/scene.gltf")
