@@ -294,3 +294,129 @@ body {
   }
 
 }
+
+/* Stream Lobby */
+
+
+
+#button-container {
+  margin-bottom: 20px; /* Space below the button container */
+}
+
+/* Centering the stream container */
+.stream-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center children vertically inside the stream container */
+  align-items: center; /* Center children horizontally */
+  /* Adjust the width and height or max-width/max-height to properly size the container */
+  width: 70%; /* Example: 70% of the section width */
+  height: 80%; /* Example: 80% of the section height */
+  /* Adding a border and padding if needed for visual layout */
+  /* border: 1px solid #ccc; */
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in the height and width calculations */
+  z-index: 1; /* Ensures it's above the background but below the slogans */
+}
+
+
+.streams-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  height: 100%; /* Let it take up the full height of the stream container */
+  box-sizing: border-box;
+  position: relative; /* Needed for absolute positioning of the enlarged cell */
+  overflow: hidden; /* Ensures the grid doesn't extend beyond its bounds */
+}
+
+.stream {
+  /* border: 1px solid #ccc; */
+  background-color: var(--nav-color);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
+  position: relative;
+  min-width: 0; 
+  min-height: 0; 
+  cursor: pointer;
+  transition: transform 0.5s ease, z-index 0s; /* Add z-index delay to prevent click during transition */ 
+}
+
+.stream:hover, .stream:focus {
+  z-index: 3; /* Ensure the stream being interacted with is above others */
+}
+
+.stream.loading::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px; /* Center the spinner */
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  /* border-top-color: #767676; */
+  border-top-color: var(--defaultTextColor);
+  animation: spin 2.5s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg);}
+}
+
+.enlarged {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease, z-index 0s 0.5s; /* Delay z-index to after scaling */
+  z-index: 4; /* Ensure the enlarged cell is above the others */
+}
+
+.local {
+  /* The local stream will automatically occupy the first cell in the grid */
+}
+
+button {
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.user-id-display {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.video-off-placeholder {
+  display: block;
+}
+
+
+@media (max-width: 768px) {
+  .streams-grid {
+    /* Adjust columns to 2 on smaller screens for larger display of videos */
+    grid-template-columns: repeat(2, 1fr); 
+    /* Define rows in terms of min-height to maintain aspect ratio */
+    grid-auto-rows: minmax(150px, auto);
+  }
+  .stream {
+    /* Let aspect ratio adjust to content on smaller screens */
+    aspect-ratio: unset;
+  }
+}
+
+
+
+

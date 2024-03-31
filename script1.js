@@ -65,10 +65,12 @@ document.getElementById('theme-toggle').addEventListener('click', function() {
       document.body.setAttribute('data-theme', 'light');
         this.innerHTML = "Dark Mode";
         pointLight.color.set("purple");
+        localStorage.setItem('theme', 'light');
     } else {
       document.body.setAttribute('data-theme', 'dark');
         this.innerHTML = "Light Mode";
         pointLight.color.set(0x00ff00);
+        localStorage.setItem('theme', 'dark');
     }
 });
 

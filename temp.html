@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>03 - Basic Scene</title>
     <link rel="stylesheet" href="style1.css">
-    
     <!-- boxicons link -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <!-- remixicons link -->
@@ -22,23 +21,35 @@
         <ul class="navlist">
             <li><a href="index.html">Home</a></li>
             <li><a href="#">me!</a></li>
-            <li><a href="temp.html">Live Lobby</a></li>
+            <li><a href="index2.html">Live Lobby</a></li>
             <li><a href="#">Blog</a></li>
         </ul>
-        
+
         <button id="theme-toggle">Dark Mode</button>
 
         <div class="bx bx-menu" id="menu-icon"></div>
     </header>
-    
+
     <div class="section">
         <i class="slogan glowing-element"></i>
         <i class="vice-slogan glowing-element"></i>
-        <div class="background-image">
-            <!-- <img src="./media/vintage_clock.png" alt="Background"> -->
+        <div class="stream-container">
+            <div id="button-container">
+              <button id="join-btn">Join Room</button>
+              <button id="leave-btn" disabled>Leave Room</button>
+              <button id="toggle-video-btn" disabled>Toggle Video Off</button>
+              <button id="toggle-audio-btn" disabled>Toggle Audio Off</button>
+            </div>
+            <div id="grid-streams" class="streams-grid glowing-element">
+              <div id="local-stream" class="stream local"></div> <!-- Local Stream Cell -->
+              <!-- Remote Stream Cells -->
+              <!-- These will be dynamically inserted by JavaScript -->
+              
+            </div>
           </div>
+          
+
     </div>
-    
 
     <div class="scroll-down">
         <!-- <a hred="#"><img src="./media/put-down.76f38ec4.svg" class="scroll-down-icon"></a> -->
@@ -47,12 +58,8 @@
 
     <!-- scrollreveal effect -->
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script type="module" src="./script1.js"></script>
     <script type="module" src="./script2.js"></script>
-    
-    <canvas class="webgl"></canvas>
-
-
+    <script type="module" src="./script3.js"></script>
 
 </body>
 

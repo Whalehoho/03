@@ -1,27 +1,32 @@
-
 {
   "name": "03",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "npm run copy-assets && vite build",
-    "deploy": "vercel --prod",
-    "copy-assets": "ncp media dist/assets"
-    
+    "dev": "concurrently \"npm run dev:vite\" \"npm run dev:server\"",
+    "dev:vite": "vite",
+    "dev:server": "node server.js",
+    "build": "vite build",
+    "serve": "vite serve",
+    "deploy": "vercel --prod"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@vercel/analytics": "^1.2.2",
+    "agora-access-token": "^2.0.4",
+    "agora-rtc-sdk-ng": "^4.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
     "i": "^0.3.7",
     "three": "^0.162.0",
     "vercel": "^33.6.2",
     "vite": "^5.2.6"
   },
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "ncp": "^2.0.0"
   }
 }
