@@ -13,10 +13,14 @@
 - [ ] Overall front-end design
 - [ ] Database management
 - [ ] Adding features from previous project: ***Project based on mediapipe***
-- [ ] Live room for multiple users to join
+- [x] Live room for multiple users to join
 
 ## Preview
-![Preview](https://github.com/Whalehoho/03/blob/deploy/assets/Media_240330_044829.gif)
+![Home](https://github.com/Whalehoho/03/blob/deploy/assets/Media_240330_044829.gif)
+
+![Live Lobby light](https://github.com/Whalehoho/03/blob/deploy/assets/Screenshot_2024-03-31_211159.png)
+
+![Live Lobby dark](https://github.com/Whalehoho/03/blob/deploy/assets/Screenshot_2024-03-31_210752.png)
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
