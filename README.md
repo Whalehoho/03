@@ -40,6 +40,14 @@ Install the required dependencies:
 
 `npm install`
 
+Install mkcert independently:
+
+`npm install mkcert -g`
+
+`mkcert create-ca`
+
+`mkcert create-cert`
+
 Launch:
 
 `npm run dev -- --host`
