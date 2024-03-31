@@ -2,9 +2,9 @@
 const { RtcTokenBuilder, RtcRole } = require('agora-access-token');
 
 module.exports = (req, res) => {
-    const channelName = "testChannel_20240331_1234";
-  const appId = "e8ea95d8afcc4556b377c6b8afcba6e0";
-  const appCertificate = "3123e59bc0984d4ab225b196d05b32cf";
+    const channelName = "testChannel_20240331_1912";
+  const appId = "122a378d78084e769c68d509946378ff";
+  const appCertificate = "c5a4e8da885d40d794e678f4cb29958a";
   const role = RtcRole.PUBLISHER;
   const expirationTimeInSeconds = 3600 * 24; // Token expires in 24 hours
   const currentTimestamp = Math.floor(Date.now() / 1000);

@@ -40,14 +40,17 @@ const PORT = 3000;
 async function joinRoom() {
     if (isJoined) return;
 
+    // activeUsers.length = 0;
+    // console.log("user",activeUsers.length);
+
     // Assuming these values are still retrieved from somewhere in your application:
-    const appId = "e8ea95d8afcc4556b377c6b8afcba6e0"; // Replace with your actual App ID
-    const channel = "testChannel_20240331_1234"; // This can be any string
+    const appId = "122a378d78084e769c68d509946378ff"; // Replace with your actual App ID
+    const channel = "testChannel_20240331_1912"; // This can be any string
 
     try {
         // Fetch a new token from your serverless function
-        const response = await fetch(`http://localhost:${PORT}/api/generate-token?channelName=${channel}`);
-        // const response = await fetch(`/api/generate-token?channelName=${channel}`);
+        // const response = await fetch(`http://localhost:${PORT}/api/generate-token?channelName=${channel}`);
+        const response = await fetch(`/api/generate-token?channelName=${channel}`);
         const data = await response.json();
         console.log("get data.token");
         const token = data.token; // Token is obtained from your serverless function
@@ -132,6 +135,7 @@ function toggleAudio() {
 
 
 client.on('user-published', async (user, mediaType) => {
+
     // Subscribe to the user's stream
     await client.subscribe(user, mediaType);
 
@@ -178,13 +182,14 @@ client.on('user-published', async (user, mediaType) => {
     }
 
     
-    else if (!remoteStreamDiv) {
+    else if (!remoteStreamDiv ) {
+        console.log("uid", user.uid);
         remoteStreamDiv = document.createElement('div');
         remoteStreamDiv.id = `remote-stream-${user.uid}`;
         remoteStreamDiv.className = 'stream remote-stream';
         // Include user.uid in the innerHTML
         remoteStreamDiv.innerHTML = `<div class="user-id-display">User ID: ${user.uid}</div>` +
-                                `<div class="video-off-placeholder">Video Off</div>`;
+                                `<div class="video-off-placeholder">Video Off!</div>`;
         document.getElementById('grid-streams').appendChild(remoteStreamDiv);
     }
     
@@ -194,6 +199,7 @@ client.on('user-published', async (user, mediaType) => {
         user.audioTrack.play();
     }
 });
+
 
 // This event handler is for when a user stops publishing a stream.
 client.on('user-unpublished', (user, mediaType) => {
@@ -242,3 +248,4 @@ document.getElementById('theme-toggle').addEventListener('click', function () {
         localStorage.setItem('theme', 'dark');
     }
 }); 
+
